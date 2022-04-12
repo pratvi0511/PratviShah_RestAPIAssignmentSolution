@@ -42,7 +42,7 @@ public class EmployeeServiceImpl implements EmployeeService{
 		if(result.isPresent()) {
 			theEmployee = result.get();		
 		}else {
-			// no employee found
+			//No employees found
 			throw new RuntimeException("Did not find employee id - " + theId);
 		}
 		
@@ -66,7 +66,6 @@ public class EmployeeServiceImpl implements EmployeeService{
 
 	@Override
 	public List<Employee> sortByFirstName(String order) {
-		// TODO Auto-generated method stub
 		if(order.equals("desc")) {
 			return employeeRepository.findAllByOrderByFirstNameDesc();
 		}else {
@@ -82,8 +81,6 @@ public class EmployeeServiceImpl implements EmployeeService{
 
 	@Override
 	public Role saveRole(Role role) {
-		// TODO Auto-generated method stub
 		return roleRepository.save(role);
 	}
-
 }
