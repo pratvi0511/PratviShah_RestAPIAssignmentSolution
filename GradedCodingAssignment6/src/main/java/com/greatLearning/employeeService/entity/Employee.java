@@ -25,7 +25,6 @@ public class Employee {
 	@Column(name="email")
 	private String email;
 	
-	// define constructor
 	public Employee() {
 		
 	}
