@@ -57,7 +57,4 @@ public class MyUserDetails implements org.springframework.security.core.userdeta
 	public boolean isEnabled() { 
 		return true;
 	}
-
-	 
-
 }
