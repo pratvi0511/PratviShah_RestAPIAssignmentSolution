@@ -43,7 +43,7 @@ public class EmployeeRestController {
 		 return employeeService.saveRole(role);
 	 }
 	 
-	 // get employee list
+	 //Getting employee list
 	 @GetMapping("/employees")
 	 public List<Employee> findAll(){
 		 Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
@@ -52,7 +52,7 @@ public class EmployeeRestController {
 		 return employeeService.findAll();
 	 }
 	 
-	 // get a single employee
+	 //Getting a single employee
 	 @GetMapping("/employees/{employeeId}")
 	 public Employee getEmployee(@PathVariable int employeeId) {
 		 Employee theEmp = employeeService.findById(employeeId);
@@ -62,28 +62,25 @@ public class EmployeeRestController {
 		 return theEmp;
 	 }
 	 
-	 // save employee
+	 //Saving employee
 	 @PostMapping("/employees")
 	 public Employee addEmployee(@RequestBody Employee theEmployee) {
-		 //also just in case they pass an id in JSON .. set id to 0
-		 // this is to force a save of new item ... instead of update
 		 theEmployee.setId(0);
 		 employeeService.save(theEmployee);
 		 return theEmployee;
 	 }
 	 
-	 //update employee
+	 //Update employee
 	 @PutMapping("/employees")
 	 public Employee updateEmployee(@RequestBody Employee theEmployee) {
 		 employeeService.save(theEmployee);
 		 return theEmployee;
 	 }
 	 
-	 // delete employee
+	 //Delete employee
 	 @DeleteMapping("/employees/{employeeId}")
 	 public String deleteEmployee(@PathVariable int employeeId) {
 		 Employee tempEmployee = employeeService.findById(employeeId);
-		 // throw exception if null
 		 if(tempEmployee==null) {
 			 throw new RuntimeException("Employee id not found - " + employeeId);
 		 }
